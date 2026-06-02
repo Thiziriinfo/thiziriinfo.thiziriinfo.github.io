@@ -1,36 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiziri Abchiche — Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --dark: #0a0a0f;
+      --dark2: #12121a;
+      --accent: #6c63ff;
+      --accent2: #ff6584;
+      --text: #e0e0e0;
+      --gray: #888;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(10,10,15,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(108,99,255,0.2);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+      padding: 120px 60px 60px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 span { color: var(--accent); }
+
+    .hero-text h2 {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(108,99,255,0.4);
+    }
+
+    .hero-photo img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 40px rgba(108,99,255,0.3);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin-top: 10px;
+      border-radius: 2px;
+    }
+
+    /* ABOUT */
+    #about p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text);
+      max-width: 750px;
+      margin-bottom: 15px;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--dark2);
+      border: 1px solid rgba(108,99,255,0.2);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .skill-card h3 {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .skill-card p {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* EXPERIENCE */
+    .exp-item {
+      background: var(--dark2);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+    }
+
+    .exp-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .exp-item .exp-meta {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .exp-item p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: var(--dark2);
+      border: 1px solid rgba(108,99,255,0.2);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-6px);
+    }
+
+    .project-card.coming-soon {
+      opacity: 0.5;
+    }
+
+    .project-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(108,99,255,0.15);
+      color: var(--accent);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 16px;
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .project-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tool-badge {
+      padding: 4px 10px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+
+    .project-link {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: gap 0.2s;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
+    /* CONTACT */
+    #contact {
+      text-align: center;
+    }
+
+    #contact p {
+      color: var(--gray);
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      padding: 14px 28px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .contact-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--gray);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
 <body>
 
   <!-- NAVBAR -->
   <nav>
     <div class="nav-logo">Thiziri Abchiche</div>
     <ul class="nav-links">
-      <li><a href="#about">À propos</a></li>
-      <li><a href="#skills">Compétences</a></li>
-      <li><a href="#projects">Projets</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
-    <h1>Thiziri Abchiche</h1>
-    <h2>Data Analyst</h2>
-    <p>Je transforme des données brutes en insights actionnables.<br>
-    Python · SQL · Machine Learning · Data Visualization</p>
-    <a href="#projects">Voir mes projets</a>
+    <div class="hero-text">
+      <h1>Thiziri <span>Abchiche</span></h1>
+      <h2>Data Analyst · Machine Learning · Python</h2>
+      <p>Turning raw data into actionable insights.<br>
+      Experienced with large-scale data (15M+ rows), anomaly detection, 
+      predictive modeling and interactive dashboards.</p>
+      <a href="#projects" class="hero-btn">View my projects →</a>
+    </div>
+    <div class="hero-photo">
+      <img src="photo.jpg" alt="Thiziri Abchiche">
+    </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about">
-    <h2>À propos</h2>
+    <h2 class="section-title">About</h2>
     <p>
-      Data Analyst avec une expérience en détection d'anomalies, prédiction de pannes 
-      et forecasting chez Free Mobile. Diplômée d'un Master MIND-SIAD à Montpellier, 
-      je maîtrise le cycle analytique complet — de la collecte des données à la mise 
-      en production des modèles.
+      Data Analyst with hands-on experience in Python, SQL and Machine Learning. 
+      I worked on large-scale telecom data (15M+ subscribers) at Free Mobile — 
+      building anomaly detection systems, failure prediction models, sales forecasting 
+      and fraud scoring pipelines.
     </p>
     <p>
-      Basée en Île-de-France, disponible immédiatement.
+      Master MIND-SIAD — Université de Montpellier · Based in Île-de-France · Available immediately.
     </p>
   </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <p>Python · SQL · R</p>
+      </div>
+      <div class="skill-card">
+        <h3>Machine Learning</h3>
+        <p>Scikit-learn · Random Forest · XGBoost · Isolation Forest · Régression logistique</p>
+      </div>
+      <div class="skill-card">
+        <h3>Data & Databases</h3>
+        <p>Pandas · ClickHouse · DBeaver · Airflow · ELT pipelines</p>
+      </div>
+      <div class="skill-card">
+        <h3>Visualization</h3>
+        <p>Power BI · Plotly · Streamlit · Tableau · Matplotlib</p>
+      </div>
+      <div class="skill-card">
+        <h3>Tools</h3>
+        <p>Git · Docker · FastAPI · AWS · VSCode · Linux</p>
+      </div>
+      <div class="skill-card">
+        <h3>Languages spoken</h3>
+        <p>French · English · Arabic · Kabyle</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="exp-item">
+      <h3>Data Analyst — Free Mobile</h3>
+      <div class="exp-meta">Paris, France · 2024 – 2025</div>
+      <p>Anomaly detection, failure prediction (SIMBOX), sales forecasting and fraud scoring 
+      on telecom data at scale (15M+ subscribers). Stack : Python, SQL/ClickHouse, 
+      scikit-learn, Airflow, Streamlit.</p>
+    </div>
+
+    <div class="exp-item">
+      <h3>Data Analyst — Sonatrach</h3>
+      <div class="exp-meta">Alger, Algérie · 2020 – 2021</div>
+      <p>Oil production modeling and forecasting using regression and time series. 
+      Power BI dashboard for real-time production monitoring.</p>
+    </div>
+
+    <div class="exp-item">
+      <h3>Data Analyst — GRTE Sonelgaz</h3>
+      <div class="exp-meta">Alger, Algérie · 2019 – 2020</div>
+      <p>Network performance analysis and anomaly detection on electrical flows. 
+      Energy flow optimization using shortest path algorithms (R).</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <span class="project-tag">✅ Completed</span>
+        <h3>Paris Real Estate Analysis — DVF 2023</h3>
+        <p>End-to-end analysis of 30,741 real estate transactions in Paris. 
+        Data cleaning, EDA, interactive visualizations and geolocation map.</p>
+        <div class="project-tools">
+          <span class="tool-badge">Python</span>
+          <span class="tool-badge">Pandas</span>
+          <span class="tool-badge">Plotly</span>
+          <span class="tool-badge">EDA</span>
+        </div>
+        <a href="https://github.com/Thiziriinfo/Analyse-Immobilier-Paris-2023" 
+           class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="project-card coming-soon">
+        <span class="project-tag">🔜 Coming soon</span>
+        <h3>Public Health Analysis — EDA + ML</h3>
+        <p>Exploratory analysis and machine learning on French public health data.</p>
+        <div class="project-tools">
+          <span class="tool-badge">Python</span>
+          <span class="tool-badge">Scikit-learn</span>
+          <span class="tool-badge">ML</span>
+        </div>
+      </div>
+
+      <div class="project-card coming-soon">
+        <span class="project-tag">🔜 Coming soon</span>
+        <h3>Automation & GenAI</h3>
+        <p>Data pipeline automation and integration of generative AI tools.</p>
+        <div class="project-tools">
+          <span class="tool-badge">Python</span>
+          <span class="tool-badge">Airflow</span>
+          <span class="tool-badge">GenAI</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-title" style="text-align:center">Contact</h2>
+    <p>Open to Data Analyst opportunities in Île-de-France · Available immediately</p>
+    <div class="contact-links">
+      <a href="mailto:thiziri.abchiche@gmail.com" class="contact-btn">✉ Email</a>
+      <a href="https://linkedin.com/in/thiziri-abchiche" class="contact-btn" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Thiziriinfo" class="contact-btn" target="_blank">GitHub</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Thiziri Abchiche · Built with HTML & CSS</p>
+  </footer>
+
 </body>
+</html>
