@@ -4,124 +4,233 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thiziri Abchiche — Data Analyst</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Barlow:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #fff; color: #2d2d2d; }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 80px;
-      border-bottom: 1px solid #e5e7eb;
-      position: fixed;
-      width: 100%;
-      background: white;
-      z-index: 100;
-    }
-
-    .nav-logo { font-weight: 700; font-size: 1.1rem; color: #1a1a2e; }
+    body { font-family: 'Inter', sans-serif; background: #0d0d0d; color: #fff; overflow-x: hidden; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 64px; background: rgba(0,0,0,0.95); position: fixed; width: 100%; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .nav-logo { font-size: 15px; font-weight: 700; color: #fff; }
     .nav-logo span { color: #E84A2F; }
-
-    .nav-links { list-style: none; display: flex; gap: 40px; }
-    .nav-links a { text-decoration: none; color: #6b7280; font-size: 0.9rem; font-weight: 500; }
-    .nav-links a:hover { color: #E84A2F; }
-
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 80px 80px;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      padding: 6px 18px;
-      background: rgba(232,74,47,0.1);
-      color: #E84A2F;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 30px;
-    }
-
-    .hero-photo img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: top;
-      border: 4px solid #E84A2F;
-      margin-bottom: 30px;
-    }
-
-    #hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 12px;
-    }
-
-    #hero h1 span { color: #E84A2F; }
-
-    #hero h2 {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #6b7280;
-      margin-bottom: 20px;
-    }
-
-    #hero p {
-      font-size: 1rem;
-      color: #6b7280;
-      max-width: 550px;
-      line-height: 1.8;
-      margin-bottom: 36px;
-    }
-
-    .hero-btn {
-      display: inline-block;
-      padding: 14px 36px;
-      background: #E84A2F;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .hero-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(232,74,47,0.35);
-    }
+    .nav-links { list-style: none; display: flex; gap: 32px; align-items: center; }
+    .nav-links a { text-decoration: none; color: rgba(255,255,255,0.45); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .btn-contact { color: #E84A2F; border: 1px solid #E84A2F; padding: 6px 16px; border-radius: 3px; transition: background 0.2s, color 0.2s; }
+    .nav-links .btn-contact:hover { background: #E84A2F; color: #fff; }
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 360px 1fr; align-items: center; padding: 120px 64px 64px; gap: 56px; }
+    .hero-photo { display: flex; justify-content: center; align-items: center; position: relative; }
+    .hero-photo::before { content: ''; position: absolute; width: 320px; height: 320px; border-radius: 50%; border: 1px solid rgba(232,74,47,0.18); }
+    .hero-photo::after { content: ''; position: absolute; width: 352px; height: 352px; border-radius: 50%; border: 1px solid rgba(232,74,47,0.07); }
+    .hero-photo img { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; object-position: top 5%; border: 3px solid #E84A2F; position: relative; z-index: 2; }
+    .hero-text { min-width: 0; }
+    .hero-name { font-family: 'Barlow Condensed', Impact, sans-serif; font-weight: 900; font-size: 100px; line-height: 0.88; text-transform: uppercase; letter-spacing: -3px; color: #fff; }
+    .hero-name .red { color: #E84A2F; }
+    .hero-title { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 20px; }
+    .hero-location { font-size: 11px; color: rgba(255,255,255,0.28); letter-spacing: 0.08em; margin-top: 10px; }
+    .hero-location span { color: #E84A2F; }
+    .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 0 64px; }
+    #about { padding: 96px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start; }
+    .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+    .section-label::before { content: ''; display: block; width: 3px; height: 15px; background: #E84A2F; border-radius: 2px; flex-shrink: 0; }
+    .section-label span { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); font-weight: 600; }
+    .about-headline { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 36px; line-height: 1.08; color: #fff; margin-bottom: 28px; }
+    .about-headline .red { color: #E84A2F; }
+    .about-text { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.9; margin-bottom: 20px; }
+    .about-text strong { color: #E84A2F; font-weight: 600; }
+    .about-stats { display: flex; gap: 20px; align-items: center; margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .stat-item .num { font-size: 22px; font-weight: 700; color: #E84A2F; }
+    .stat-item .num.white { color: #fff; }
+    .stat-item .label { font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; margin-top: 3px; }
+    .stat-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.07); }
+    .lang-badges { display: flex; gap: 6px; align-items: center; }
+    .lang-badge { padding: 4px 10px; border-radius: 3px; font-size: 9px; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); }
+    .lang-badge.main { background: rgba(232,74,47,0.15); border-color: rgba(232,74,47,0.3); color: #E84A2F; }
+    .skills-col { min-width: 0; }
+    .skills-section-title { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #E84A2F; font-weight: 600; margin-bottom: 28px; }
+    .skill-group { margin-bottom: 28px; }
+    .skill-group-label { font-size: 10px; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { display: inline-block; padding: 6px 16px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+    .tag-red { background: #E84A2F; color: #fff; }
+    .tag-white { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
+    .tag-gray { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.08); }
+    #demarche { padding: 96px 64px; background: #0a0a0a; }
+    .demarche-header { margin-bottom: 56px; }
+    .demarche-header h2 { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 32px; color: #fff; }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .step { padding: 32px 28px 32px 0; border-top: 2px solid rgba(255,255,255,0.08); }
+    .step:first-child { border-top-color: #E84A2F; }
+    .step-num { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 900; color: rgba(255,255,255,0.05); line-height: 1; margin-bottom: -6px; }
+    .step-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 10px; }
+    .step-desc { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+    .step-desc strong { color: #E84A2F; font-weight: 500; }
+    #projects { padding: 96px 64px; }
+    .projects-header { margin-bottom: 48px; }
+    .projects-header h2 { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 32px; color: #fff; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .project-card { background: #111; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+    .project-card:hover { border-color: rgba(232,74,47,0.4); transform: translateY(-3px); }
+    .project-thumb { height: 120px; background: #0a0a0a; display: flex; align-items: flex-end; padding: 14px; position: relative; }
+    .project-badge { position: absolute; top: 12px; right: 12px; background: #E84A2F; color: #fff; font-size: 9px; font-weight: 700; padding: 3px 10px; border-radius: 3px; letter-spacing: 0.06em; }
+    .project-thumb-label { font-size: 11px; color: rgba(255,255,255,0.3); }
+    .project-body { padding: 18px; }
+    .project-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .project-desc { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 14px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .project-tag { font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 3px; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.08); }
+    .project-links { display: flex; gap: 10px; }
+    .btn-dashboard { padding: 7px 16px; background: #E84A2F; color: #fff; border-radius: 4px; font-size: 11px; font-weight: 600; text-decoration: none; }
+    .btn-github { padding: 7px 14px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.5); border-radius: 4px; font-size: 11px; text-decoration: none; }
+    .project-card-placeholder { border: 1px dashed rgba(255,255,255,0.1); border-radius: 8px; min-height: 240px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; }
+    .project-card-placeholder .plus { width: 32px; height: 32px; border: 1.5px dashed rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: rgba(255,255,255,0.15); }
+    .project-card-placeholder p { font-size: 11px; color: rgba(255,255,255,0.2); }
+    #contact { padding: 96px 64px; background: #0a0a0a; text-align: center; }
+    .contact-label { margin-bottom: 16px; justify-content: center; }
+    #contact h2 { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 36px; color: #fff; margin-bottom: 12px; }
+    #contact p { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 36px; }
+    .contact-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-email { padding: 12px 28px; background: #E84A2F; color: #fff; border-radius: 4px; font-size: 12px; font-weight: 600; text-decoration: none; }
+    .btn-social { padding: 12px 22px; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); border-radius: 4px; font-size: 12px; text-decoration: none; }
+    footer { padding: 24px 64px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 11px; color: rgba(255,255,255,0.2); }
   </style>
 </head>
 <body>
-
   <nav>
-    <div class="nav-logo">Thiziri <span>Abchiche</span></div>
+    <div class="nav-logo">TA<span>.</span></div>
     <ul class="nav-links">
-      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#about">À propos</a></li>
       <li><a href="#demarche">Démarche</a></li>
       <li><a href="#projects">Projets</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="btn-contact">Contact</a></li>
     </ul>
   </nav>
-
   <section id="hero">
-    <div class="hero-tag">📍 Île-de-France · Disponible immédiatement</div>
     <div class="hero-photo">
       <img src="photo.jpeg" alt="Thiziri Abchiche">
     </div>
-    <h1>Thiziri <span>Abchiche</span></h1>
-    <h2>Data Analyst · Machine Learning · Python</h2>
-    <p>Je transforme des données complexes en insights actionnables — du nettoyage des données à la mise en production.</p>
-    <a href="#projects" class="hero-btn">Voir mes projets →</a>
+    <div class="hero-text">
+      <div class="hero-name">
+        <div>Thiziri</div>
+        <div class="red">ABCHICHE</div>
+      </div>
+      <p class="hero-title">Data Analyst</p>
+      <p class="hero-location"><span>📍</span> Île-de-France &nbsp;·&nbsp; Mobile toute la France</p>
+    </div>
   </section>
-
+  <div class="divider"></div>
+  <section id="about">
+    <div>
+      <div class="section-label"><span>Profil</span></div>
+      <h2 class="about-headline">Data-driven,<br>prête à avoir<br><span class="red">un impact.</span></h2>
+      <p class="about-text">Data Analyst orientée résultats, je prends en charge des projets <strong>end-to-end</strong> : collecte et nettoyage de données, analyse exploratoire, construction de <strong>KPIs</strong>, modèles prédictifs atteignant <strong>70–80% de précision</strong>, et livraison de <strong>reportings</strong> et dashboards interactifs sous <strong>Power BI</strong> et <strong>Streamlit</strong> en production.</p>
+      <p class="about-text">Expérimentée sur des bases de données à <strong>+15 millions d'entrées</strong> en environnement professionnel réel — <strong>SQL</strong> et <strong>Python</strong> en production — je transforme des données complexes en décisions concrètes : détecter une tendance, identifier un <strong>pattern</strong>, automatiser un reporting. À l'aise sur des volumes <strong>big data</strong>, avec une approche rigoureuse du <strong>pipeline de données</strong>.</p>
+      <div class="about-stats">
+        <div class="stat-item"><div class="num">+15M</div><div class="label">entrées traitées</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat-item"><div class="num white">80%</div><div class="label">score ML</div></div>
+        <div class="stat-divider"></div>
+        <div class="lang-badges">
+          <span class="lang-badge main">FR</span>
+          <span class="lang-badge">EN</span>
+          <span class="lang-badge">AR</span>
+          <span class="lang-badge">KAB</span>
+        </div>
+      </div>
+    </div>
+    <div class="skills-col">
+      <div class="skills-section-title">Stack technique</div>
+      <div class="skill-group">
+        <div class="skill-group-label">Data & ML</div>
+        <div class="tags">
+          <span class="tag tag-red">Python</span>
+          <span class="tag tag-red">pandas</span>
+          <span class="tag tag-red">NumPy</span>
+          <span class="tag tag-red">scikit-learn</span>
+          <span class="tag tag-red">R</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Visualisation & BI</div>
+        <div class="tags">
+          <span class="tag tag-white">Power BI</span>
+          <span class="tag tag-white">Tableau</span>
+          <span class="tag tag-white">Looker</span>
+          <span class="tag tag-white">Streamlit</span>
+          <span class="tag tag-white">Excel</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Data & Cloud</div>
+        <div class="tags">
+          <span class="tag tag-gray">SQL</span>
+          <span class="tag tag-gray">Snowflake</span>
+          <span class="tag tag-gray">BigQuery</span>
+          <span class="tag tag-gray">Git</span>
+          <span class="tag tag-gray">Airflow</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Productivité</div>
+        <div class="tags">
+          <span class="tag tag-gray">AI Copilots</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+  <section id="demarche">
+    <div class="demarche-header">
+      <div class="section-label"><span>Comment je travaille</span></div>
+      <h2>Ma démarche</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">01</div><div class="step-title">Comprendre</div><div class="step-desc">Questions métier, données disponibles, <strong>KPIs</strong> à construire. Définir le périmètre du projet.</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-title">Explorer</div><div class="step-desc"><strong>Pipeline</strong> de nettoyage rigoureux, EDA approfondie, détection de patterns et tendances cachées.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-title">Modéliser</div><div class="step-desc">Modèles <strong>prédictifs</strong>, dashboards interactifs <strong>Power BI</strong> & <strong>Streamlit</strong>, insights actionnables.</div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-title">Livrer</div><div class="step-desc">Déploiement <strong>end-to-end</strong>, documentation claire, résultats communicables aux équipes métier.</div></div>
+    </div>
+  </section>
+  <div class="divider"></div>
+  <section id="projects">
+    <div class="projects-header">
+      <div class="section-label"><span>Mes réalisations</span></div>
+      <h2>Projets</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-thumb">
+          <span class="project-badge">LIVE</span>
+          <span class="project-thumb-label">Dashboard Streamlit · Paris 2023</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Analyse Immobilier Paris 2023</div>
+          <div class="project-desc">Analyse des transactions DVF, prix au m² par arrondissement, carte interactive. +30 000 transactions traitées.</div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">pandas</span>
+            <span class="project-tag">Plotly</span>
+            <span class="project-tag">Streamlit</span>
+          </div>
+          <div class="project-links">
+            <a href="https://analyse-immobilier-paris-2023-q8bg29uahcojkerqbstyxu.streamlit.app/" target="_blank" class="btn-dashboard">Dashboard →</a>
+            <a href="https://github.com/thiziriinfo/Analyse-Immobilier-Paris-2023" target="_blank" class="btn-github">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card-placeholder"><div class="plus">+</div><p>Projet 2 · bientôt</p></div>
+      <div class="project-card-placeholder"><div class="plus">+</div><p>Projet 3 · bientôt</p></div>
+    </div>
+  </section>
+  <div class="divider"></div>
+  <section id="contact">
+    <div class="section-label contact-label"><span>Me contacter</span></div>
+    <h2>Travaillons ensemble</h2>
+    <p>Ouverte aux opportunités Data Analyst · Île-de-France & toute la France.</p>
+    <div class="contact-links">
+      <a href="mailto:thiziri.abc@gmail.com" class="btn-email">thiziri.abc@gmail.com</a>
+      <a href="https://linkedin.com/in/thiziri-abchiche" target="_blank" class="btn-social">LinkedIn</a>
+      <a href="https://github.com/thiziriinfo" target="_blank" class="btn-social">GitHub</a>
+    </div>
+  </section>
+  <footer>© 2026 Thiziri Abchiche — Data Analyst</footer>
 </body>
 </html>
