@@ -4,22 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thiziri Abchiche — Data Analyst</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+
     :root {
-      --dark: #0a0a0f;
-      --dark2: #12121a;
-      --accent: #6c63ff;
-      --accent2: #ff6584;
-      --text: #e0e0e0;
-      --gray: #888;
+      --primary: #E84A2F;
+      --dark: #1a1a2e;
+      --text: #2d2d2d;
+      --gray: #6b7280;
+      --light: #f9fafb;
+      --border: #e5e7eb;
+      --white: #ffffff;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--dark);
+      background: var(--white);
       color: var(--text);
       scroll-behavior: smooth;
     }
@@ -31,18 +32,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
-      background: rgba(10,10,15,0.95);
+      padding: 18px 80px;
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
       z-index: 100;
-      border-bottom: 1px solid rgba(108,99,255,0.2);
     }
 
     .nav-logo {
       font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--accent);
+      font-size: 1.1rem;
+      color: var(--dark);
     }
+
+    .nav-logo span { color: var(--primary); }
 
     .nav-links {
       list-style: none;
@@ -52,75 +55,89 @@
 
     .nav-links a {
       text-decoration: none;
-      color: var(--text);
+      color: var(--gray);
       font-size: 0.9rem;
+      font-weight: 500;
       transition: color 0.3s;
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { color: var(--primary); }
 
     /* HERO */
     #hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 80px;
-      padding: 120px 60px 60px;
+      justify-content: space-between;
+      padding: 120px 80px 80px;
+      background: var(--white);
+    }
+
+    .hero-text { max-width: 580px; }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(232,74,47,0.1);
+      color: var(--primary);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 24px;
     }
 
     .hero-text h1 {
-      font-size: 3.2rem;
+      font-size: 3.5rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 16px;
     }
 
-    .hero-text h1 span { color: var(--accent); }
-
-    .hero-text h2 {
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: var(--gray);
-      margin-bottom: 20px;
-    }
+    .hero-text h1 span { color: var(--primary); }
 
     .hero-text p {
-      font-size: 1rem;
+      font-size: 1.1rem;
+      color: var(--gray);
       line-height: 1.8;
-      color: var(--text);
-      max-width: 500px;
-      margin-bottom: 30px;
+      margin-bottom: 36px;
     }
 
     .hero-btn {
       display: inline-block;
       padding: 14px 32px;
-      background: var(--accent);
+      background: var(--primary);
       color: white;
       text-decoration: none;
       border-radius: 8px;
       font-weight: 600;
+      font-size: 0.95rem;
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .hero-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(108,99,255,0.4);
+      box-shadow: 0 8px 25px rgba(232,74,47,0.35);
     }
 
     .hero-photo img {
-      width: 280px;
-      height: 280px;
+      width: 320px;
+      height: 320px;
       border-radius: 50%;
       object-fit: cover;
       object-position: top;
-      border: 4px solid var(--accent);
-      box-shadow: 0 0 40px rgba(108,99,255,0.3);
+      border: 5px solid var(--primary);
+      box-shadow: 0 20px 60px rgba(232,74,47,0.2);
     }
 
     /* SECTIONS */
-    section {
-      padding: 100px 60px;
+    .section {
+      padding: 100px 80px;
+    }
+
+    .section-alt { background: var(--light); }
+
+    .section-inner {
       max-width: 1100px;
       margin: 0 auto;
     }
@@ -128,127 +145,159 @@
     .section-title {
       font-size: 2rem;
       font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .section-title span { color: var(--primary); }
+
+    .section-subtitle {
+      color: var(--gray);
+      font-size: 1rem;
       margin-bottom: 50px;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: var(--accent);
-      margin-top: 10px;
-      border-radius: 2px;
-    }
-
-    /* ABOUT */
-    #about p {
-      font-size: 1.05rem;
-      line-height: 1.9;
-      color: var(--text);
-      max-width: 750px;
-      margin-bottom: 15px;
     }
 
     /* SKILLS */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
     }
 
     .skill-card {
-      background: var(--dark2);
-      border: 1px solid rgba(108,99,255,0.2);
+      background: var(--white);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 24px;
-      transition: border-color 0.3s, transform 0.2s;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
 
     .skill-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px rgba(232,74,47,0.1);
     }
 
     .skill-card h3 {
-      font-size: 0.85rem;
-      color: var(--accent);
+      font-size: 0.8rem;
+      color: var(--primary);
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-
-    .skill-card p {
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    /* EXPERIENCE */
-    .exp-item {
-      background: var(--dark2);
-      border-left: 3px solid var(--accent);
-      border-radius: 8px;
-      padding: 28px 32px;
-      margin-bottom: 20px;
-    }
-
-    .exp-item h3 {
-      font-size: 1.1rem;
+      letter-spacing: 1.5px;
       font-weight: 600;
-      margin-bottom: 6px;
+      margin-bottom: 14px;
     }
 
-    .exp-item .exp-meta {
-      font-size: 0.9rem;
-      color: var(--accent);
-      margin-bottom: 12px;
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    .exp-item p {
-      font-size: 0.95rem;
+    .skill-tag {
+      padding: 5px 12px;
+      background: var(--light);
+      border-radius: 20px;
+      font-size: 0.82rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* DEMARCHE */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 32px 20px;
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 0 auto 20px;
+    }
+
+    .step-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      font-size: 0.88rem;
       color: var(--gray);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     /* PROJECTS */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
     }
 
     .project-card {
-      background: var(--dark2);
-      border: 1px solid rgba(108,99,255,0.2);
+      background: var(--white);
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 32px;
-      transition: border-color 0.3s, transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s;
     }
 
     .project-card:hover {
-      border-color: var(--accent);
       transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+      border-color: var(--primary);
     }
 
     .project-card.coming-soon {
-      opacity: 0.5;
+      opacity: 0.55;
+      pointer-events: none;
     }
 
-    .project-tag {
+    .project-status {
       display: inline-block;
-      padding: 4px 12px;
-      background: rgba(108,99,255,0.15);
-      color: var(--accent);
+      padding: 4px 14px;
       border-radius: 20px;
-      font-size: 0.8rem;
-      margin-bottom: 16px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .status-done {
+      background: rgba(16,185,129,0.1);
+      color: #059669;
+    }
+
+    .status-soon {
+      background: rgba(107,114,128,0.1);
+      color: var(--gray);
     }
 
     .project-card h3 {
       font-size: 1.15rem;
-      font-weight: 600;
+      font-weight: 700;
+      color: var(--dark);
       margin-bottom: 12px;
     }
 
@@ -263,59 +312,83 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .tool-badge {
-      padding: 4px 10px;
-      background: rgba(255,255,255,0.05);
+      padding: 4px 12px;
+      background: var(--light);
       border-radius: 6px;
       font-size: 0.8rem;
+      font-weight: 500;
       color: var(--text);
     }
 
-    .project-link {
-      display: inline-block;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: gap 0.2s;
+    .project-links {
+      display: flex;
+      gap: 12px;
     }
 
-    .project-link:hover { text-decoration: underline; }
+    .project-link {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .project-link:hover { transform: translateY(-2px); }
+
+    .link-github {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .link-live {
+      background: var(--primary);
+      color: white;
+    }
 
     /* CONTACT */
     #contact {
       text-align: center;
     }
 
-    #contact p {
-      color: var(--gray);
-      font-size: 1.05rem;
-      margin-bottom: 40px;
+    #contact .section-subtitle {
+      max-width: 500px;
+      margin: 0 auto 40px;
     }
 
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
     .contact-btn {
-      padding: 14px 28px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      text-decoration: none;
+      padding: 14px 30px;
       border-radius: 8px;
       font-weight: 600;
-      transition: background 0.3s, color 0.3s;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .contact-btn:hover {
-      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-primary {
+      background: var(--primary);
       color: white;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
     }
 
     /* FOOTER */
@@ -324,7 +397,7 @@
       padding: 30px;
       color: var(--gray);
       font-size: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid var(--border);
     }
   </style>
 </head>
@@ -332,12 +405,11 @@
 
   <!-- NAVBAR -->
   <nav>
-    <div class="nav-logo">Thiziri Abchiche</div>
+    <div class="nav-logo">Thiziri <span>Abchiche</span></div>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#demarche">Démarche</a></li>
+      <li><a href="#projects">Projets</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -345,151 +417,180 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-text">
-      <h1>Thiziri <span>Abchiche</span></h1>
-      <h2>Data Analyst · Machine Learning · Python</h2>
-      <p>Turning raw data into actionable insights.<br>
-      Experienced with large-scale data (15M+ rows), anomaly detection, 
-      predictive modeling and interactive dashboards.</p>
-      <a href="#projects" class="hero-btn">View my projects →</a>
+      <div class="hero-tag">📍 Île-de-France · Disponible immédiatement</div>
+      <h1>Data Analyst<br><span>&</span> Machine Learning</h1>
+      <p>Je transforme des données complexes en insights actionnables.<br>
+      Du nettoyage des données à la mise en production — je maîtrise<br>
+      l'ensemble du cycle analytique.</p>
+      <a href="#projects" class="hero-btn">Voir mes projets →</a>
     </div>
     <div class="hero-photo">
       <img src="photo.jpg" alt="Thiziri Abchiche">
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="section-title">About</h2>
-    <p>
-      Data Analyst with hands-on experience in Python, SQL and Machine Learning. 
-      I worked on large-scale telecom data (15M+ subscribers) at Free Mobile — 
-      building anomaly detection systems, failure prediction models, sales forecasting 
-      and fraud scoring pipelines.
-    </p>
-    <p>
-      Master MIND-SIAD — Université de Montpellier · Based in Île-de-France · Available immediately.
-    </p>
-  </section>
-
   <!-- SKILLS -->
-  <section id="skills">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Languages</h3>
-        <p>Python · SQL · R</p>
-      </div>
-      <div class="skill-card">
-        <h3>Machine Learning</h3>
-        <p>Scikit-learn · Random Forest · XGBoost · Isolation Forest · Régression logistique</p>
-      </div>
-      <div class="skill-card">
-        <h3>Data & Databases</h3>
-        <p>Pandas · ClickHouse · DBeaver · Airflow · ELT pipelines</p>
-      </div>
-      <div class="skill-card">
-        <h3>Visualization</h3>
-        <p>Power BI · Plotly · Streamlit · Tableau · Matplotlib</p>
-      </div>
-      <div class="skill-card">
-        <h3>Tools</h3>
-        <p>Git · Docker · FastAPI · AWS · VSCode · Linux</p>
-      </div>
-      <div class="skill-card">
-        <h3>Languages spoken</h3>
-        <p>French · English · Arabic · Kabyle</p>
+  <section class="section section-alt" id="skills">
+    <div class="section-inner">
+      <h2 class="section-title">Compétences <span>techniques</span></h2>
+      <p class="section-subtitle">Stack data complète — de l'extraction à la visualisation</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Langages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">R</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Machine Learning</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">Random Forest</span>
+            <span class="skill-tag">XGBoost</span>
+            <span class="skill-tag">Isolation Forest</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Data & Bases de données</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">ClickHouse</span>
+            <span class="skill-tag">Airflow</span>
+            <span class="skill-tag">ELT Pipelines</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Visualisation</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Plotly</span>
+            <span class="skill-tag">Streamlit</span>
+            <span class="skill-tag">Tableau</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Outils</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Linux</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Langues</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Français</span>
+            <span class="skill-tag">Anglais</span>
+            <span class="skill-tag">Arabe</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <h2 class="section-title">Experience</h2>
-
-    <div class="exp-item">
-      <h3>Data Analyst — Free Mobile</h3>
-      <div class="exp-meta">Paris, France · 2024 – 2025</div>
-      <p>Anomaly detection, failure prediction (SIMBOX), sales forecasting and fraud scoring 
-      on telecom data at scale (15M+ subscribers). Stack : Python, SQL/ClickHouse, 
-      scikit-learn, Airflow, Streamlit.</p>
-    </div>
-
-    <div class="exp-item">
-      <h3>Data Analyst — Sonatrach</h3>
-      <div class="exp-meta">Alger, Algérie · 2020 – 2021</div>
-      <p>Oil production modeling and forecasting using regression and time series. 
-      Power BI dashboard for real-time production monitoring.</p>
-    </div>
-
-    <div class="exp-item">
-      <h3>Data Analyst — GRTE Sonelgaz</h3>
-      <div class="exp-meta">Alger, Algérie · 2019 – 2020</div>
-      <p>Network performance analysis and anomaly detection on electrical flows. 
-      Energy flow optimization using shortest path algorithms (R).</p>
+  <!-- DEMARCHE -->
+  <section class="section" id="demarche">
+    <div class="section-inner">
+      <h2 class="section-title">Ma <span>démarche</span></h2>
+      <p class="section-subtitle">Une approche structurée du problème métier à l'insight</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Compréhension métier</h3>
+          <p>Identifier le besoin, cadrer les questions clés et définir les KPIs pertinents.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Collecte & Nettoyage</h3>
+          <p>Extraction SQL, intégration multi-sources, nettoyage et préparation des données.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Analyse & Modélisation</h3>
+          <p>EDA, feature engineering, modélisation statistique et machine learning.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Restitution</h3>
+          <p>Dashboards interactifs et synthèse des insights pour les équipes métier.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
+  <section class="section section-alt" id="projects">
+    <div class="section-inner">
+      <h2 class="section-title">Mes <span>projets</span></h2>
+      <p class="section-subtitle">Projets réalisés sur des données réelles et publiques</p>
+      <div class="projects-grid">
 
-<div class="project-card">
-  <span class="project-tag"> Completed</span>
-  <h3>Paris Real Estate Analysis — DVF 2023</h3>
-  <p>End-to-end analysis of 30,741 real estate transactions in Paris. 
-  Data cleaning, EDA, interactive visualizations and geolocation map.</p>
-  <div class="project-tools">
-    <span class="tool-badge">Python</span>
-    <span class="tool-badge">Pandas</span>
-    <span class="tool-badge">Plotly</span>
-    <span class="tool-badge">EDA</span>
-  </div>
-  <a href="https://github.com/Thiziriinfo/Analyse-Immobilier-Paris-2023" 
-     class="project-link" target="_blank">GitHub →</a>
-  &nbsp;&nbsp;
-  <a href="https://analyse-immobilier-paris-2023-q8bg29uahcojkerqbstyxu.streamlit.app/" 
-     class="project-link" target="_blank" style="background:#E84A2F; color:white; padding:6px 14px; border-radius:6px;">Live Dashboard →</a>
-</div>
-
-      <div class="project-card coming-soon">
-        <span class="project-tag"> Coming soon</span>
-        <h3>Public Health Analysis — EDA + ML</h3>
-        <p>Exploratory analysis and machine learning on French public health data.</p>
-        <div class="project-tools">
-          <span class="tool-badge">Python</span>
-          <span class="tool-badge">Scikit-learn</span>
-          <span class="tool-badge">ML</span>
+        <div class="project-card">
+          <span class="project-status status-done">✅ Terminé</span>
+          <h3>Analyse du marché immobilier parisien — DVF 2023</h3>
+          <p>Analyse complète de 30 741 transactions immobilières à Paris. Nettoyage de données, EDA, visualisations interactives et carte géolocalisée des prix au m².</p>
+          <div class="project-tools">
+            <span class="tool-badge">Python</span>
+            <span class="tool-badge">Pandas</span>
+            <span class="tool-badge">Plotly</span>
+            <span class="tool-badge">Streamlit</span>
+            <span class="tool-badge">EDA</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Thiziriinfo/Analyse-Immobilier-Paris-2023" class="project-link link-github" target="_blank">GitHub</a>
+            <a href="https://analyse-immobilier-paris-2023-q8bg29uahcojkerqbstyxu.streamlit.app/" class="project-link link-live" target="_blank">Live Dashboard →</a>
+          </div>
         </div>
-      </div>
 
-      <div class="project-card coming-soon">
-        <span class="project-tag"> Coming soon</span>
-        <h3>Automation & GenAI</h3>
-        <p>Data pipeline automation and integration of generative AI tools.</p>
-        <div class="project-tools">
-          <span class="tool-badge">Python</span>
-          <span class="tool-badge">Airflow</span>
-          <span class="tool-badge">GenAI</span>
+        <div class="project-card coming-soon">
+          <span class="project-status status-soon">🔜 Coming soon</span>
+          <h3>Analyse Santé Publique — EDA + Machine Learning</h3>
+          <p>Analyse exploratoire et modélisation sur des données de santé publique françaises.</p>
+          <div class="project-tools">
+            <span class="tool-badge">Python</span>
+            <span class="tool-badge">Scikit-learn</span>
+            <span class="tool-badge">Machine Learning</span>
+          </div>
         </div>
-      </div>
 
+        <div class="project-card coming-soon">
+          <span class="project-status status-soon">🔜 Coming soon</span>
+          <h3>Automation & GenAI</h3>
+          <p>Pipeline de données automatisé avec intégration d'outils d'IA générative.</p>
+          <div class="project-tools">
+            <span class="tool-badge">Python</span>
+            <span class="tool-badge">Airflow</span>
+            <span class="tool-badge">GenAI</span>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
-    <h2 class="section-title" style="text-align:center">Contact</h2>
-    <p>Open to Data Analyst opportunities in Île-de-France · Available immediately</p>
-    <div class="contact-links">
-      <a href="mailto:thiziri.abchiche@gmail.com" class="contact-btn">✉ Email</a>
-      <a href="https://linkedin.com/in/thiziri-abchiche" class="contact-btn" target="_blank">LinkedIn</a>
-      <a href="https://github.com/Thiziriinfo" class="contact-btn" target="_blank">GitHub</a>
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">Me <span>contacter</span></h2>
+      <p class="section-subtitle">Ouverte aux opportunités Data Analyst en Île-de-France · Disponible immédiatement</p>
+      <div class="contact-links">
+        <a href="mailto:thiziri.abchiche@gmail.com" class="contact-btn btn-primary">✉ Email</a>
+        <a href="https://linkedin.com/in/thiziri-abchiche" class="contact-btn btn-outline" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Thiziriinfo" class="contact-btn btn-outline" target="_blank">GitHub</a>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
+    <p>© 2026 Thiziri Abchiche · Data Analyst · Île-de-France</p>
+  </footer>
+
+</body>
+</html>
     <p>© 2026 Thiziri Abchiche · Built with HTML & CSS</p>
   </footer>
 
