@@ -235,27 +235,40 @@
 
     .about-stats {
       display: flex;
-      gap: 20px;
+      gap: 32px;
       align-items: center;
       margin-top: 32px;
       padding-top: 28px;
       border-top: 1px solid rgba(108,99,255,0.12);
     }
     .stat-item .num {
-      font-size: 22px;
-      font-weight: 700;
+      font-size: 26px;
+      font-weight: 300;
+      letter-spacing: -0.02em;
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .stat-item .num.white { background: none; -webkit-text-fill-color: #fff; color: #fff; }
     .stat-item .label {
-      font-size: 9px;
-      color: rgba(255,255,255,0.3);
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-top: 3px;
     }
     .stat-divider { width: 1px; height: 36px; background: rgba(108,99,255,0.15); }
+    .lang-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lang-text span { color: rgba(108,99,255,0.5); font-size: 10px; }
     .lang-badges { display: flex; gap: 6px; align-items: center; }
     .lang-badge {
       padding: 4px 10px;
@@ -398,16 +411,11 @@
         Expérimentée sur des bases de données à <strong>+15 millions d'entrées</strong> — <strong>SQL</strong> et <strong>Python</strong> en environnement professionnel réel — avec une maîtrise du <strong>pipeline de données</strong> complet : <strong>ETL</strong>, <strong>EDA</strong>, <strong>feature engineering</strong>, modèles <strong>prédictifs</strong> (scoring, classification) atteignant <strong>80% de précision</strong>. Habituée à travailler en <strong>autonomie</strong> comme en équipe <strong>Agile</strong>, avec un souci constant de la <strong>data quality</strong>.
       </p>
       <div class="about-stats">
-        <div class="stat-item"><div class="num">+15M</div><div class="label">entrées traitées</div></div>
+        <div class="stat-item"><div class="num">3 ans+</div><div class="label">d'expérience</div></div>
         <div class="stat-divider"></div>
-        <div class="stat-item"><div class="num white">80%</div><div class="label">score ML</div></div>
+        <div class="stat-item"><div class="num">+15M</div><div class="label">lignes · 82% recall</div></div>
         <div class="stat-divider"></div>
-        <div class="lang-badges">
-          <span class="lang-badge main">FR</span>
-          <span class="lang-badge">EN</span>
-          <span class="lang-badge">AR</span>
-          <span class="lang-badge">KAB</span>
-        </div>
+        <div class="lang-text">Français <span>·</span> Anglais</div>
       </div>
     </div>
     <div class="skills-col">
@@ -532,7 +540,28 @@
           </div>
         </div>
       </div>
-      <div class="project-card-placeholder"><div class="plus">+</div><p>Projet 3 · bientôt</p></div>
+      <div class="project-card">
+        <div class="project-thumb">
+          <span class="project-badge">LIVE</span>
+          <span class="project-thumb-label">Dashboard Streamlit · OCDE · OMS · INRS</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Santé Mentale au Travail — Analyse Mondiale</div>
+          <div class="project-desc">Dashboard 6 pages sur le burnout et le bien-être professionnel (9 pays, 2019–2024). Simulateur ROI prévention, score bien-être composite, recommandations DRH et explorateur SQL interactif avec CTEs & window functions.</div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Streamlit</span>
+            <span class="project-tag">Plotly</span>
+            <span class="project-tag">SQLite</span>
+            <span class="project-tag">Pandas</span>
+            <span class="project-tag">SQL avancé</span>
+          </div>
+          <div class="project-links">
+            <a href="https://mental-health-work-dashboard.streamlit.app" target="_blank" class="btn-dashboard">Dashboard →</a>
+            <a href="https://github.com/Thiziriinfo/Mental-Health-Dashboard" target="_blank" class="btn-github">GitHub</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -544,12 +573,4 @@
     <p>Ouverte aux opportunités Data Analyst · CDI · Île-de-France & toute la France.</p>
     <div class="contact-links">
       <a href="mailto:thiziri.abchiche@gmail.com" class="btn-email">thiziri.abchiche@gmail.com</a>
-      <a href="https://linkedin.com/in/thiziri-abchiche" target="_blank" class="btn-social">LinkedIn</a>
-      <a href="https://github.com/thiziriinfo" target="_blank" class="btn-social">GitHub</a>
-    </div>
-  </section>
-
-  <footer>© 2026 Thiziri Abchiche — Data Analyst</footer>
-
-</body>
-</html>
+      <a href="https://linkedin.com/in/thiziri-abchiche" target="_blank" class="btn-social">Li
